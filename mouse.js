@@ -14,7 +14,7 @@ let client = new Twitter({
     access_token_secret: process.env.TWITTER_OAUTH_ACCESS_SECRET,
 });
 
-m.on('mouseup', event => {
+m.on('mouseup', (event) => {
     let status = '';
     if (event.button == 2) {
         // 右クリック
