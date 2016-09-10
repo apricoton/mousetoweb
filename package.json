@@ -1,0 +1,24 @@
+{
+  "name": "mousetoweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mouse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apricoton/mousetoweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apricoton/mousetoweb/issues"
+  },
+  "homepage": "https://github.com/apricoton/mousetoweb#readme",
+  "devDependencies": {
+    "dotenv": "^2.0.0",
+    "node-mouse": "0.0.2",
+    "twitter": "^1.4.0"
+  }
+}
