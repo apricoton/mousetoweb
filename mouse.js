@@ -15,10 +15,20 @@ let client = new Twitter({
 });
 
 m.on('mouseup', event => {
-    if (event.button == 0) {
-        client.post('statuses/update', {status: 'にゃーん'}, (error, tweet, response) => {
-            if (error) throw error;
-            console.log(tweet);
-        });
+    let status = '';
+    if (event.button == 2) {
+        // 右クリック
+        status = '眠いにゃ';
+    } else if (event.button == 1) {
+        // 中クリック
+        status = 'おなかすいたにゃ';
+    } else {
+        // 左クリック
+        status = 'にゃーん';
     }
+    
+    client.post('statuses/update', {status: status}, (error, tweet, response) => {
+        if (error) throw error;
+        console.log(tweet);
+    });
 });
