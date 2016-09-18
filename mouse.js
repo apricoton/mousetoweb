@@ -36,7 +36,14 @@ m.on('mouseup', (event) => {
         }
         
         if (typeof sentence[position] == 'undefined') {
-            position = 0;
+            if (event.button == 2) {
+                // 右クリック
+                position = 0;
+            } else {
+                // 左クリック
+                position = sentence.length - 1;
+            }
+            
         }
         
         status = sentence[position];
