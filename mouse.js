@@ -20,27 +20,32 @@ let sentence = [
     'にゃーん？',
     '眠いにゃ',
     'おなかすいたにゃ',
-    
-    
 ];
 
+let position = 0;
+let status = '';
+
 m.on('mouseup', (event) => {
-    let status = '';
-    if (event.button == 2) {
-        // 右クリック
-        status = '眠いにゃ';
+    if (event.button == 0 || event.button == 2) {
+        if (event.button == 2) {
+            // 右クリック
+            position++;
+        } else {
+            // 左クリック
+            position--;
+        }
+        
+        if (typeof sentence[position] == 'undefined') {
+            position = 0;
+        }
+        
+        status = sentence[position];
         exec('yukkuri "' + status + '"');
-    } else if (event.button == 1) {
-        // 中クリック
-        status = 'おなかすいたにゃ';
     } else {
-        // 左クリック
-        status = 'にゃーん';
-        exec('yukkuri "' + status + '"');
+        // 中クリック
+        client.post('statuses/update', {status: status}, (error, tweet, response) => {
+            if (error) throw error;
+            console.log(tweet);
+        });
     }
-    
-    /*client.post('statuses/update', {status: status}, (error, tweet, response) => {
-        if (error) throw error;
-        console.log(tweet);
-    });*/
 });
